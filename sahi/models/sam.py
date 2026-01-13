@@ -23,6 +23,7 @@ class SegmentAnythingModel(DetectionModel):
     """
 
     def __init__(self, *args, **kwargs):
+        print(self.category_mapping)
         if not self.category_mapping:
             raise ValueError("category_mapping must be provided for SegmentAnythingModel.")
         self.fuse: bool = kwargs.pop("fuse", False)
