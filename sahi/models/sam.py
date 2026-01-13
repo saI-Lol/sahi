@@ -102,6 +102,7 @@ class SegmentAnythingModel(DetectionModel):
         if self.model is None:
             raise ValueError("Model is not loaded, load it by calling .load_model()")        
 
+        image = cv2.resize(image, (self.image_size, self.image_size))
         prediction_result = self.model.generate(image)
 
         # Handle different result types for PyTorch vs ONNX models
