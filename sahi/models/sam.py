@@ -15,12 +15,6 @@ from sahi.utils.cv import get_coco_segmentation_from_bool_mask
 from sam2.build_sam import build_sam2
 from sam2.automatic_mask_generator import SAM2AutomaticMaskGenerator
 
-torch.autocast(device_type="cuda", dtype=torch.bfloat16).__enter__()
-
-if torch.cuda.get_device_properties(0).major >= 8:
-    torch.backends.cuda.matmul.allow_tf32 = True
-    torch.backends.cudnn.allow_tf32 = True
-
 
 class SegmentAnythingModel(DetectionModel):
     """Detection model for SegmentAnything models.
