@@ -38,7 +38,7 @@ class SegmentAnythingModel(DetectionModel):
         """
 
         try:
-            sam2_model = build_sam2(self.config_path, self.model_path, device=self.device, apply_postprocessing=False)
+            sam2_model = build_sam2(self.config_path, self.model_path, device=torch.device(self.device), apply_postprocessing=False)
             mask_generator = SAM2AutomaticMaskGenerator(sam2_model)
             self.set_model(mask_generator)
 
